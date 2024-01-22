@@ -26,13 +26,13 @@ public class CubeDockerConfiguration {
     public static final String CERT_PATH = "certPath";
     public static final String TLS_VERIFY = "tlsVerify";
     public static final String DOCKER_CONTAINERS = "dockerContainers";
-    public static final String BOOT2DOCKER_PATH = "boot2dockerPath";
-    public static final String DOCKER_MACHINE_PATH = "dockerMachinePath";
-    public static final String DOCKER_MACHINE_NAME = "machineName";
-    public static final String DOCKER_MACHINE_DRIVER = "machineDriver";
+    //public static final String BOOT2DOCKER_PATH = "boot2dockerPath";
+    //public static final String DOCKER_MACHINE_PATH = "dockerMachinePath";
+    //public static final String DOCKER_MACHINE_NAME = "machineName";
+    //public static final String DOCKER_MACHINE_DRIVER = "machineDriver";
     public static final String AUTO_START_ORDER = "autoStartOrder";
-    public static final String DOCKER_MACHINE_CUSTOM_PATH = "dockerMachineCustomPath";
-    public static final String DOCKER_MACHINE_ARQUILLIAN_PATH = "~/.arquillian/machine";
+    //public static final String DOCKER_MACHINE_CUSTOM_PATH = "dockerMachineCustomPath";
+    //public static final String DOCKER_MACHINE_ARQUILLIAN_PATH = "~/.arquillian/machine";
     public static final String CUBE_SPECIFIC_PROPERTIES = "cubeSpecificProperties";
     public static final String CLEAN = "clean";
     public static final String REMOVE_VOLUMES = "removeVolumes";
@@ -53,9 +53,9 @@ public class CubeDockerConfiguration {
     private String dockerServerVersion;
     private String dockerServerUri;
     private String dockerRegistry;
-    private String boot2DockerPath;
-    private String dockerMachinePath;
-    private String machineName;
+    //private String boot2DockerPath;
+    //private String dockerMachinePath;
+    //private String machineName;
     private String username;
     private String password;
     private String email;
@@ -93,7 +93,7 @@ public class CubeDockerConfiguration {
             cubeConfiguration.dockerInsideDockerResolution = Boolean.parseBoolean(map.get(DIND_RESOLUTION));
         }
 
-        if (map.containsKey(BOOT2DOCKER_PATH)) {
+        /*if (map.containsKey(BOOT2DOCKER_PATH)) {
             cubeConfiguration.boot2DockerPath = map.get(BOOT2DOCKER_PATH);
         }
 
@@ -103,7 +103,7 @@ public class CubeDockerConfiguration {
 
         if (map.containsKey(DOCKER_MACHINE_NAME)) {
             cubeConfiguration.machineName = map.get(DOCKER_MACHINE_NAME);
-        }
+        }*/
 
         if (map.containsKey(USERNAME)) {
             cubeConfiguration.username = map.get(USERNAME);
@@ -281,14 +281,14 @@ public class CubeDockerConfiguration {
             + DockerMachineDistro.resolveDistro();
     }
 
-    public static File resolveMachinePath(String machineCustomPath, String machineVersion) {
+    /*public static File resolveMachinePath(String machineCustomPath, String machineVersion) {
         if (StringUtils.isBlank(machineCustomPath)) {
             machineCustomPath = DOCKER_MACHINE_ARQUILLIAN_PATH;
         }
         String dockerMachineFile = HomeResolverUtil.resolveHomeDirectoryChar(
             machineCustomPath + "/" + machineVersion + "/" + DockerMachine.DOCKER_MACHINE_EXEC);
         return new File(dockerMachineFile);
-    }
+    }*/
 
     public String getDockerServerUri() {
         return dockerServerUri;
@@ -306,7 +306,7 @@ public class CubeDockerConfiguration {
         return dockerRegistry;
     }
 
-    public String getBoot2DockerPath() {
+    /*public String getBoot2DockerPath() {
         return boot2DockerPath;
     }
 
@@ -320,7 +320,7 @@ public class CubeDockerConfiguration {
 
     public boolean isDockerMachineName() {
         return this.getMachineName() != null;
-    }
+    }*/
 
     public String getUsername() {
         return username;
@@ -394,7 +394,7 @@ public class CubeDockerConfiguration {
         if (dockerRegistry != null) {
             content.append("  ").append(DOCKER_REGISTRY).append(" = ").append(dockerRegistry).append(lineSeparator);
         }
-        if (boot2DockerPath != null) {
+        /*if (boot2DockerPath != null) {
             content.append("  ").append(BOOT2DOCKER_PATH).append(" = ").append(boot2DockerPath).append(lineSeparator);
         }
         if (dockerMachinePath != null) {
@@ -402,7 +402,7 @@ public class CubeDockerConfiguration {
         }
         if (machineName != null) {
             content.append("  ").append(DOCKER_MACHINE_NAME).append(" = ").append(machineName).append(lineSeparator);
-        }
+        }*/
         if (username != null) {
             content.append("  ").append(USERNAME).append(" = ").append(username).append(lineSeparator);
         }

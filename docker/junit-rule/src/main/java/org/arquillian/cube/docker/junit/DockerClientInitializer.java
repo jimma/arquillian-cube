@@ -26,8 +26,6 @@ public class DockerClientInitializer {
         };
 
         CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(new CommandLineExecutor()),
-            new Boot2Docker(new CommandLineExecutor()),
             new DefaultDocker(),
             new OperatingSystemResolver().currentOperatingSystem());
 

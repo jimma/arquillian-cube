@@ -8,6 +8,7 @@ import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
 import org.jboss.arquillian.core.api.event.ManagerStarted;
 
+@Deprecated
 public class Boot2DockerCreator {
 
     @Inject

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-
+@Deprecated
 public class DockerMachine extends AbstractCliInternetAddressResolver {
 
     public static final String DOCKER_MACHINE_EXEC = "docker-machine";

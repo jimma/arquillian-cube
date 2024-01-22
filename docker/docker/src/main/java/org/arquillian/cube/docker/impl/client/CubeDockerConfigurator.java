@@ -74,8 +74,7 @@ public class CubeDockerConfigurator {
         }
 
         Map<String, String> config = arquillianDescriptor.extension(EXTENSION_NAME).getExtensionProperties();
-        CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(topInstance.get(),
-            dockerMachineInstance.get(), boot2DockerInstance.get(), new DefaultDocker(),
+        CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(topInstance.get(), new DefaultDocker(),
             operatingSystemInstanceProducer.get());
         resolver.resolve(config);
         CubeDockerConfiguration cubeConfiguration = CubeDockerConfiguration.fromMap(config, injectorInstance.get());

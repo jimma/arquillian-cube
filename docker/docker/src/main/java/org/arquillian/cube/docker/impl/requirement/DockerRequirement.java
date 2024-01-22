@@ -28,8 +28,6 @@ public class DockerRequirement implements Constraint<RequiresDocker> {
     public DockerRequirement() {
         this.commandLineExecutor = new CommandLineExecutor();
         this.resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(commandLineExecutor),
-            new Boot2Docker(commandLineExecutor),
             new DefaultDocker(),
             new OperatingSystemResolver().currentOperatingSystem()
         );

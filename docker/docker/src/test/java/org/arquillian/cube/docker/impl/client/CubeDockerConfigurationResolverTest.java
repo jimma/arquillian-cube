@@ -77,8 +77,6 @@ public class CubeDockerConfigurationResolverTest {
 
 
         CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(null),
-            new Boot2Docker(null),
             mockDefaultDocker(),
             operatingSystemInterface);
         when(info.getName()).thenReturn("docker-ce");
@@ -112,8 +110,6 @@ public class CubeDockerConfigurationResolverTest {
     public void shouldSkipsInvalidDockerDefault() throws Exception {
 
         CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(null),
-            new Boot2Docker(boot2dockerCommandLineExecutor),
             mockDefaultDocker(),
             operatingSystemInterface);
         when(boot2dockerCommandLineExecutor.execCommand(ArgumentMatchers.<String>any())).thenReturn("127.0.0.1");
@@ -134,8 +130,6 @@ public class CubeDockerConfigurationResolverTest {
     @Test
     public void shouldNotSetTlsVerifyForTcpSchemeOnOSX() {
         CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(null),
-            new Boot2Docker(null),
             mockDefaultDocker(),
             operatingSystemInterface);
 
@@ -157,8 +151,6 @@ public class CubeDockerConfigurationResolverTest {
     @Test
     public void shouldNotSetTlsVerifyForTcpSchemeOnLinux() {
         CubeDockerConfigurationResolver resolver = new CubeDockerConfigurationResolver(new Top(),
-            new DockerMachine(null),
-            new Boot2Docker(null),
             mockDefaultDocker(),
             operatingSystemInterface);
         when(infoCmd.exec()).thenThrow(new ProcessingException("test exception"));

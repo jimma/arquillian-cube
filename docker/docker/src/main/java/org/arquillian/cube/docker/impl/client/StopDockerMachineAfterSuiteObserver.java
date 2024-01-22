@@ -5,7 +5,7 @@ import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
 import org.jboss.arquillian.test.spi.event.suite.AfterSuite;
-
+@Deprecated
 public class StopDockerMachineAfterSuiteObserver {
 
     //private static final Logger log = Logger.getLogger(StopDockerMachineAfterSuiteObserver.class.getName());
@@ -18,12 +18,12 @@ public class StopDockerMachineAfterSuiteObserver {
 
     public void stopDockerMachineIfStartedByCube(@Observes(precedence = -300) AfterSuite afterSuite) {
 
-        if (dockerMachineInstance.get().isManuallyStarted()) {
+        /*if (dockerMachineInstance.get().isManuallyStarted()) {
 
             String machineName = configurationProducer.get().getMachineName();
             String cliPath = configurationProducer.get().getDockerMachinePath();
 
             dockerMachineInstance.get().stopDockerMachine(cliPath, machineName);
-        }
+        }*/
     }
 }
