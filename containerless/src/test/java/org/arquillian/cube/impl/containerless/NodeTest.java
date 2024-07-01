@@ -40,7 +40,8 @@ public class NodeTest {
             assertThat(userInput, is("Hello from inside a container!"));
         } catch (UnknownHostException e) {
             fail("Don't know about host ");
-        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
             fail("Couldn't get I/O for the connection to ");
         }
     }
