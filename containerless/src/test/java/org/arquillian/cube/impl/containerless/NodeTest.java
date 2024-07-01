@@ -34,7 +34,7 @@ public class NodeTest {
 
     @Test
     public void shouldReturnMessageFromNodeJs(@ArquillianResource URL base) throws Exception {
-        Thread.sleep(30*1000);
+        System.out.println("url base is :" + base.toExternalForm());
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
             base.openStream()));) {
             String userInput = in.readLine();
