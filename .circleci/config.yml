@@ -41,13 +41,10 @@ jobs:
         type: enum
         enum: ["docker", "kubernetes", "openshift"]
     working_directory: ~/circleci-arquillian-cube
-    docker:
-      - image: cimg/openjdk:<< parameters.jdk-version >>
+    machine: # executor type
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
-      - setup_remote_docker:
-          version: docker24
-          docker_layer_caching: true
       - restore_cache:
           key: circleci-arquillian-cube-{{ checksum "pom.xml" }}
       - run:
