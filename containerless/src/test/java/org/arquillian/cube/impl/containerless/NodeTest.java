@@ -34,8 +34,6 @@ public class NodeTest {
 
     @Test
     public void shouldReturnMessageFromNodeJs(@ArquillianResource URL base) throws Exception {
-
-        base = new URL("http://127.0.0.1:8080");
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
             base.openStream()));) {
             String userInput = in.readLine();
